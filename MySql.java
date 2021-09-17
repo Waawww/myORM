@@ -1,9 +1,6 @@
 package com.hjz.demeone.myorm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MySql {
 
@@ -38,7 +35,7 @@ public class MySql {
      * @return
      */
     public MySql addValues(Object... value) {
-        values.addAll(values);
+        values.addAll(Arrays.asList(value));
         return this;
     }
 
@@ -81,7 +78,7 @@ public class MySql {
         String str = sql.toString();
         Object[] values = getValues();
         for (int i = 0; i < values.length; i++) {
-            str.replaceFirst("\\?", "#{map." + i + "}");
+            str = str.replaceFirst("\\?", "#{map." + i + "}");
         }
         return str.trim();
     }

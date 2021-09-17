@@ -8,7 +8,7 @@ import java.util.Map;
 public interface DataMapper {
 
     @SelectProvider(type = ReturnSql.class,method = "select")
-    List<Map<String,Object>> select(String sql);
+    List<Map<String,Object>> select(Map map,String sql);
 
     @SelectProvider(type = ReturnSql.class,method = "update")
     Long update(String sql);
